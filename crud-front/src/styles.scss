@@ -1,0 +1,42 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$angular-shop-primary: mat.define-palette(mat.$cyan-palette, 800, 800);
+$angular-shop-accent: mat.define-palette(mat.$teal-palette, 400);
+$angular-shop-warn: mat.define-palette(mat.$red-palette);
+
+$angular-shop-theme: mat.define-light-theme((
+  color: (
+    primary: $angular-shop-primary,
+    accent: $angular-shop-accent,
+    warn: $angular-shop-warn,
+  )
+));
+
+@include mat.all-component-themes($angular-shop-theme);
+
+/* You can add global styles to this file, and also import other style files */
+$foreground: map-get($angular-shop-theme, foreground);
+$background: map-get($angular-shop-theme, background);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.pa-1 {
+  padding: 1rem 1rem !important;
+}
+
+.ma-0 {
+  margin: 0 0 !important;
+}
+
+.text-sm { font-size: 70% !important; }
+.text-md { font-size: 80% !important; }
+.text-xl { font-size: 120% !important; }
+.mat-text-muted {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+.mat-text-primary {
+  color: #673AB7 !important;
+}
