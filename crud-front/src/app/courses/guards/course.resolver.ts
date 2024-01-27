@@ -7,12 +7,12 @@ import { inject } from '@angular/core';
 export const courseResolver: ResolveFn<Course> = (
   route, state, service: CourseService = inject(CourseService)) => {
     console.log(route.params['id'])
-    if(route.params?.['id']){
+    if(route.params && route.params['id']){
       console.log(route.paramMap.get('id')!);
       console.log(service.loadById(route.params['id']))
       return service.loadById(route.params['id']);
     }
       console.log(service.loadById(route.params['id']))
       console.log(route.paramMap.get('id')!);
-      return of({_id: '', name: '', category: ''});
+      return of({_id: '', name: '', category: '', lessons: []});
 };
